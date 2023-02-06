@@ -77,7 +77,10 @@ class DialogWithSummaries():
             extractive_summaries_to_json.append(summ_json)
         abstractive_summaries_to_json = list()
         for summ in self.abstractive_summaries:
-            abst_json = [txt for txt in summ ]
+            if summ:
+                abst_json = [txt for txt in summ ]
+            else:
+                abst_json = [""]
             abstractive_summaries_to_json.append(abst_json)
 
         result = {
